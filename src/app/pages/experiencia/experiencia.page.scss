@@ -1,0 +1,14 @@
+.noPadding {
+    --ion-grid-padding: "0";
+    --ion-grid-column-padding: "0";
+}
+
+.padding {
+    padding-left: 20px;
+}
+
+.margin {
+    margin-block-start: 2px;
+    margin-block-end: 15px;
+    text-align: center;
+}

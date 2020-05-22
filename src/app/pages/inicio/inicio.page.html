@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" *ngIf="!buscadorAbierto">
+            <ion-button (click)="openMenu()">
+                <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-searchbar *ngIf="buscadorAbierto" showCancelButton="true" (ionCancel)="buscadorAbierto=false" class="borde" debounce="100" animated placeholder="Buscar usuario..." (ionChange)="buscarUsuario($event)"></ion-searchbar>
+
+        <ion-buttons slot="secondary">
+            <ion-button (click)="openSearch()" *ngIf="!buscadorAbierto">
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngIf="usuarios.length > 0 && buscadorAbierto">
+        <ion-item *ngFor="let user of usuarios | filtro:textoBuscar" (click)="click(user)">
+            <ion-label>
+                <h4>{{ user.name }}</h4>
+                <h3>{{ user.email }}</h3>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -1,3 +1,22 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-menu side="start" menuId="first" contentId="main">
+        <ion-header>
+            <ion-toolbar color="tertiary">
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-menu-toggle *ngFor="let n of [1,2,3,4]">
+                    <ion-item>
+                        <ion-icon slot="end" name="pizza" color="primary"></ion-icon>
+                        <ion-label>{{ n }}</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main"></ion-router-outlet>
+
 </ion-app>
